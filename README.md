@@ -27,8 +27,10 @@
 ### Screen Shot :
    * ##### Nokia Website:
       * <img src="https://i.ibb.co/4N9mdtQ/nokai-sx.png" alt="nokia-xss" border="0"></a>
-### Video :
-<a href='https://asciinema.org/a/318006'><img src='https://i.imgur.com/BddhMbp.png'></a>
+      * <img src="sc/scant3r_header.png">
+### GIF
+<img src='sc/scan.gif'>
+<img src='https://github.com/knassar702/scant3r/blob/master/sc/scant3r.gif'>
 
 #### OS Support :
 - <h5> Linux</h5>
@@ -77,17 +79,42 @@ Options:
   --cookies           |    HTTP Cookie header value (e.g. "PHPSESSID=a8d127e..")
   --encode            |    How Many encode the payload (default 1)
   --allow-redirect    |    Allow the main redirect
-  --verify            |    Skip HTTPS Cert Error
   --user-agent        |    add custom user-agent
   --scan-headers      |    Try to inject payloads in headers not parameters (user-agent,referrer)
   --skip-headers      |    Skip The Headers scanning processe
   --sleep             |    Sent one request after some Seconds
-  --batch             |    Never ask for user input, use the default behavior
   --module            |    add custom module (e.g. "google.py")
-
+  --debug             |    Debugging Mood
 ````
 ### Example :
+* post method<br>
+``` $ python3 scant3r -u 'http://localhost/dvwa/vulnerabilities/exec/' --data='ip=localhost&Submit=Submit'```
+* add cookies<br>
+```$ python3 scant3r -u 'http://localhost/?l=2' --cookies='user=admin&id=1'```
+* add timeout<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --timeout=1```
+* allow redirects (302,301)<br>
+`$ python3 scant3r -u 'http://localhost/?l=13' --allow-redirect`
+* sleeping<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --sleep=2```
+* debugging mood<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --debug```
+* scanning all headers<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --scan-headers```
+* skip headers<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --skip-headers```
+* add custom user-agent<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --user-agent='CustomUseragent(v2)'```
+* add encoding<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --encode=2```
+* add proxy<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --proxy='http://localhost:8080'```
+* run your own module<br>
+```$ python3 scant3r -u 'http://localhost/?l=13' --module=dumper.py```
+* add urls list<br>
+```$ python3 scant3r --list urls.txt --threads=40```
 
-``` $ python3 scant3r -u 'http://localhost/dvwa/vulnerabilities/exec/' --data='ip=localhost&Submit=Submit' --cookies='PHPSESSID=safasf' ```
-#### <a href='https://knassar702.github.io/projects/scant3r/'>Blog</a>
-#### <a href='https://www.youtube.com/watch?v=Y2BR1GZ1B8g&feature=youtu.be'>YouTube</a>
+### For Testing :
+* `$ ./scant3r -u 'http://test.vulnweb.com/search.php?test=query' --data='searchFor=scant3r&goButton=go' `
+* `$ ./scant3r -u 'http://test.vulnweb.com/artists.php?artist=1'`
+* `$ ./scant3r -u 'https://menacoderrr.pythonanywhere.com/'`
